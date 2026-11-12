@@ -276,11 +276,56 @@ footer a{margin:0}
 .fphone{color:#fff;font-weight:600;font-size:15px}
 .fbot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:22px;font-size:13px;color:#7d7b76}
 @media(max-width:700px){.ftop{flex-direction:column;align-items:flex-start}.social span{display:none}}
+
+/* ---- v8: mobile polish ---- */
+.concept .short,.btn .short{display:none}
+.menu-btn{display:none}
+@media(max-width:860px){
+ section{padding:60px 0}
+ .lead{font-size:17px}
+ .concept{font-size:12.5px;padding:7px 12px}
+ .concept .long{display:none}.concept .short{display:inline}
+ .nav{height:64px;position:relative}
+ .brand small{display:none}
+ .brand span{font-size:17px}
+ .crest{width:42px;height:42px}
+ .links{gap:0}
+ .links .btn{padding:10px 14px;font-size:12.5px;order:2;white-space:nowrap}
+ .brand{gap:10px}
+ .brand span{line-height:1.05}
+ .links .btn .long{display:none}.links .btn .short{display:inline}
+ .menu-btn{display:flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;margin-left:10px;background:none;border:0;cursor:pointer;order:3;padding:10px}
+ .menu-btn i{display:block;height:2px;background:var(--ink);border-radius:2px;transition:.2s}
+ .nav{gap:0}
+ .nav .links{margin-left:auto}
+ header.open .links a:not(.btn){display:block}
+ header.open .links{position:absolute;top:64px;left:0;right:0;flex-direction:column;align-items:stretch;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 12px 24px rgba(0,0,0,.08);padding:8px 24px 18px}
+ header.open .links a:not(.btn){padding:13px 0;border-bottom:1px solid var(--line);font-size:17px}
+ header.open .links .btn{margin-top:14px;justify-content:center;padding:14px}
+ header.open .menu-btn i:nth-child(1){transform:translateY(7px) rotate(45deg)}
+ header.open .menu-btn i:nth-child(2){opacity:0}
+ header.open .menu-btn i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+ .nav{display:flex}
+ .alt .card,.redsec .card{padding:22px 20px;display:grid;grid-template-columns:auto 1fr;column-gap:16px;align-items:start}
+ .num{font-size:34px;margin:0;grid-row:span 3}
+ .alt .card h3{font-size:24px}
+ .alt .card p{font-size:15.5px;margin:6px 0 10px}
+ .cards{gap:12px;margin-top:28px}
+ .progfoot{flex-direction:column;align-items:flex-start}
+ .progfoot .btn{width:100%;justify-content:center}
+ .coaches{gap:14px}
+ .coach:last-child{grid-column:1/-1;max-width:50%;justify-self:center;width:calc(50% - 7px);max-width:none}
+ .coach h3{font-size:18px}
+ .form{padding:24px 20px}
+ .form .row{grid-template-columns:1fr;gap:0}
+ .fmid nav{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 12px;width:100%}
+ h2{font-size:clamp(32px,9vw,44px)}
+}
 </style>
 </head>
 <body>
 
-<div class="concept"><b>Design concept</b> prepared by WizFlow for Spartans Academy Dubai. Not the live website. Items in dashed red boxes are placeholders to be confirmed with the academy.</div>
+<div class="concept"><b>Design concept</b><span class="long"> prepared by WizFlow for Spartans Academy Dubai. Not the live website. Items in dashed red boxes are placeholders to be confirmed with the academy.</span><span class="short"> by WizFlow · dashed boxes = placeholders</span></div>
 
 <header>
   <div class="wrap nav">
@@ -288,13 +333,14 @@ footer a{margin:0}
       <i class="crest"></i>
       <span>Spartans Academy<small>DUBAI · FOOTBALL</small></span>
     </a>
-    <nav class="links">
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" onclick="var h=this.closest('header');h.classList.toggle('open');this.setAttribute('aria-expanded',h.classList.contains('open'))"><i></i><i></i><i></i></button>
+    <nav class="links" onclick="if(event.target.tagName==='A')this.closest('header').classList.remove('open')">
       <a href="#programs">Programs</a>
       <a href="#coaches">Coaches</a>
       <a href="#locations">Locations</a>
       <a href="#matches">Matches</a>
       <a href="#faq">FAQ</a>
-      <a class="btn btn-red" href="#trial">Book a free trial</a>
+      <a class="btn btn-red" href="#trial"><span class="long">Book a free trial</span><span class="short">Free trial</span></a>
     </nav>
   </div>
 </header>
